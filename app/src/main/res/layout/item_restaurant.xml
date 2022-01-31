@@ -76,9 +76,9 @@
         android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvName"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="1.7mi" />
 
     <TextView

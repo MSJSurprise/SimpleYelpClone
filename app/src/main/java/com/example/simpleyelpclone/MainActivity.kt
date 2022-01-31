@@ -19,16 +19,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val searchTerm = intent.getStringExtra("searchTerm")
+        val location = intent.getStringExtra("location")
+        Log.i(TAG, "searchTerm $searchTerm")
+        Log.i(TAG, "location $location")
+
+        supportActionBar?.setTitle("$searchTerm in $location")
+
         val restaurants = mutableListOf<YelpRestaurant>()
         val adapter = RestaurantAdapter(this, restaurants)
         val rvRestaurant: RecyclerView = findViewById(R.id.rvRestaurants)
         rvRestaurant.adapter = adapter
         rvRestaurant.layoutManager = LinearLayoutManager(this)
 
-        val searchTerm = intent.getStringExtra("searchTerm")
-        val location = intent.getStringExtra("location")
-        Log.i(TAG, "searchTerm $searchTerm")
-        Log.i(TAG, "location $location")
 
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build()
